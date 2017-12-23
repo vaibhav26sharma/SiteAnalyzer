@@ -2,17 +2,20 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Search Box Practice #3</title>
+
+
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-    <meta charset="utf-8">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
--->
+
 
 <script type="text/javascript">
 
@@ -24,13 +27,16 @@
                 }
             }
 
+
     $(function(){
 	$('#sent').click(function(e){
 	    e.preventDefault();    // This prevents form from being sumbitted
 
 	   var search = $('#search').val();
-		$('#load').show();
 		$('#caution').hide();
+		$('#load').show();
+
+
 
 
 
@@ -44,17 +50,15 @@
 			//e.preventDefault();
 
 			$('#load').hide();
-			$('#location').show();
+			    $('#dialog').show();
 			console.log(response);
 			var data = JSON.parse(response);
 			var trHTML = '';
 
-            //$.each(response.Countries, function (i, item) {
+                    trHTML += '<table border="1" style=" width: 200px;margin-left: auto;margin-right: auto;" id="tabb"><tr><th>Site</th><td>' + data.targetSite + '</td></tr><tr><th>ResponseCode</th><td>' + data.responseCode + '</td></tr><tr><th>Site Title</th><td>' + data.title + '</td></tr><tr><th>Title Length</th><td>' + data.titleLength + '</td></tr><tr><th>Mobile Friendly</th><td>' + data.ismobile + '</td></tr><tr><th>Site Score</th><td>' + data.siteScore + '</td></tr></table>';
 
-            trHTML += '<tr><td>' + data.targetSite + '</td><td>' + data.responseCode + '</td><td>' + data.title + '</td><td>' + data.titleLength + '</td><td>' + data.ismobile + '</td><td>' + data.siteScore + '</td></tr>';
-        //});
 
-        $('#location').append(trHTML);
+        $('#dialog').append(trHTML);
 
 
 
@@ -78,7 +82,7 @@
 <body>
 
 <label id ="caution">****PLEASE CLICK SEARCH..Pressing Enter will not work!!****</label>
-<input type="image" src="/static/img/Wedges.gif" id="load" style="display:none;">
+<input type="image" src="/static/img/Ellipsis.gif" id="load" style="display:none;height:100px;width:100px;">
 
 
  <form class="form-wrapper cf" role="form">
@@ -86,7 +90,9 @@
 	  <button id="sent" type="button">Search</button>
 </form>
 
-	<!--	<table id="location" border='1' class="table" style="display:none;">
+</body>
+<div id="dialog" title="Analysis" style="display:none; ">
+	<!--<table id="location" border='1'  >
     <tr>
         <th>Site</th>
          <th>Response Code</th>
@@ -97,19 +103,7 @@
 
     </tr>
 </table>-->
-<div id="dialog" title="Basic dialog">
-	<table id="location" border='1'  style="display:none;">
-    <tr>
-        <th>Site</th>
-         <th>Response Code</th>
-        <th>Title</th>
-        <th>Title Length</th>
-        <th>Mobile Friendly</th>
-        <th>Site Score</th>
-
-    </tr>
-</table>
+</div>
 
 
-</body>
 </html>
