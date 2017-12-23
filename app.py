@@ -80,7 +80,7 @@ def executeSearch():
     checkMobileFriendly = 'https://www.googleapis.com/pagespeedonline/v3beta1/mobileReady?url=' + site
 
 
-    print '***checkMobileFriendly string {}'.format(checkMobileFriendly)
+    print '***checkMobileFriendly string {}***'.format(checkMobileFriendly)
 
     try:
         r = requests.head(site)
