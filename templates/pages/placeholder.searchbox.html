@@ -22,7 +22,6 @@
  function doit_onkeypress(event){
                 if (event.keyCode == 13 || event.which == 13){
                     alert("Please press Search to execute. Enter key will not work!!");
-                    e.preventDefault();
                     return;
                 }
             }
@@ -33,6 +32,11 @@
 	    e.preventDefault();    // This prevents form from being sumbitted
 
 	   var search = $('#search').val();
+	   if(search =='' || search == null)
+	   {
+	    alert('Please enter the Site URL...!!');
+	    return;
+	   }
 		$('#caution').hide();
 		$('#load').show();
 
